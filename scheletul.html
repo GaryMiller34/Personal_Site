@@ -1,14 +1,145 @@
-<h1>Introducere în Front-end Development</h1>
+<!DOCTYPE html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard Simplu</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-<p style="front-weight: bold; color: red">Dezvoltare Front-End în cadrul școlii Link Academy:</p>
-<br><br><span style="font-family: verdana, geneva, sans-serif;">
+      /* Stiluri generale */
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        transition: background-color 0.3s, color 0.3s;
+      }
 
-<ul>
- 
-<li style="color: red;">HTML</li>
- 
-<li style="color: green;">CSS</li>
- 
-<li style="color: violet;">JavaScript</li>
- 
-</ul>
+      /* Mod implicit: Dark Mode */
+      body.dark-mode {
+        background-color: #121212;
+        color: #f5f5f5;
+      }
+
+      body.light-mode {
+        background-color: #ffffff;
+        color: #333333;
+      }
+
+      /* Header */
+      header {
+        padding: 20px;
+        text-align: center;
+        background-color: #444;
+        color: white;
+        border-bottom: 3px solid #222;
+      }
+
+      header button {
+        margin-top: 10px;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+      }
+
+      header button:hover {
+        background-color: #0056b3;
+      }
+
+      /* Layout principal */
+      main {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        padding: 20px;
+      }
+
+      /* Casete individuale */
+      .box {
+        padding: 20px;
+        background: #333;
+        color: #fff;
+        border: 2px solid #555;
+        border-radius: 5px;
+        text-align: center;
+        transition: background-color 0.3s, border-color 0.3s;
+      }
+
+      body.light-mode .box {
+        background: #f5f5f5;
+        color: #333;
+        border-color: #ddd;
+      }
+
+      /* Footer */
+      footer {
+        text-align: center;
+        padding: 10px;
+        background-color: #444;
+        color: white;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body class="dark-mode">
+    <header>
+      <h1>Centru de acces</h1>
+      <button id="toggleMode">Zi/Noapte</button>
+    </header>
+    <main>
+      <section class="box">
+        <h2>Ceas</h2>
+        <p>Va apărea mai târziu</p>
+      </section>
+      <section class="box">
+        <h2>Radio Online</h2>
+        <p>Butoane Radio</p>
+      </section>
+      <section class="box">
+        <h2>Știri</h2>
+        <p>Titluri</p>
+      </section>
+      <section class="box">
+        <h2>Curs Valutar</h2>
+        <p>Euro / Dolar / Leu</p>
+      </section>
+      <div class="container">
+        <h2>Biblia</h2>
+        <div class="iframe-container">
+          <iframe
+            id="bible-iframe"
+            src="https://www.jw.org/ro/biblioteca/biblia/biblia-de-studiu/c%C4%83r%C8%9Bi/geneza/1/"
+            title="Biblia"
+          ></iframe>
+        </div>
+        <div class="controls">
+          <button onclick="loadChapter('Geneza 1')">Geneza 1</button>
+          <button onclick="loadChapter('Exodul 1')">Exodul 1</button>
+          <!-- Poți adăuga mai multe butoane pentru alte capitole -->
+        </div>
+      </div>
+
+      <script>
+        function loadChapter(chapter) {
+          var iframe = document.getElementById("bible-iframe");
+          iframe.src =
+            "https://www.jw.org/ro/biblioteca/biblia/biblia-de-studiu/c%C4%83r%C8%9Bi/geneza/1/" +
+            chapter +
+            "/";
+        }
+      </script>
+    </main>
+    <footer>
+      <p>© 2025 Creat cu pasiune, protejat cu respect - Igor Melnic</p>
+    </footer>
+  </body>
+</html>
