@@ -1,0 +1,20 @@
+<script>
+      var day = prompt("Alege numarul zilei sapramanii: ");
+      var day =
+        day == 1
+          ? "Luni"
+          : day == 2
+          ? "Marți"
+          : day == 3
+          ? "Miercuri"
+          : day == 4
+          ? "Joi"
+          : day == 5
+          ? "Vineri"
+          : day == 6
+          ? "Sâmbătă"
+          : day == 7
+          ? "Duminică"
+          : "Da de când săptămâna are mai mult de 7 zile?";
+      document.write(day);
+    </script>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calcul Matematic</title>
+  </head>
+  <body>
+    <script>
+      let number1, number2;
+
+      do {
+        number1 = parseFloat(prompt("Introduceți primul număr: "));
+      } while (isNaN(number1));
+
+      let action;
+      while (!["+", "-", "*", "/"].includes(action)) {
+        action = prompt("Introduceți o operație: +, -, *, /");
+      }
+
+      do {
+        number2 = parseFloat(prompt("Introduceți al doilea număr: "));
+      } while (isNaN(number2));
+
+      let result;
+
+      switch (action) {
+        case "+":
+          result = number1 + number2;
+          break;
+        case "-":
+          result = number1 - number2;
+          break;
+        case "*":
+          result = number1 * number2;
+          break;
+        case "/":
+          result =
+            number2 !== 0 ? number1 / number2 : "Eroare: Împărțire la zero!";
+          break;
+      }
+
+      if (result % 1 === 0) {
+        alert("Rezultatul este: " + result);
+      } else {
+        alert("Rezultatul este: " + result.toFixed(2));
+      }
+    </script>
+  </body>
+</html>

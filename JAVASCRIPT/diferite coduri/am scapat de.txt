@@ -1,0 +1,12 @@
+<script>
+      var scapare = [
+        "Valoghea Timoftă",
+        "Viorelică Miaunică",
+        "Ionel Sajinel",
+        "Valentuș Marchituș",
+        "Olejoc Postolajoc",
+      ];
+      scapare.forEach(function (iuhee) {
+        console.log("În sfârșit am scăpat de: " + iuhee);
+      });
+    </script>

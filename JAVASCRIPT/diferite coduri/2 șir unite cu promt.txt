@@ -1,0 +1,6 @@
+<script>
+      let drochia = prompt("Cine te chinuiau la Drochia? ").split(" ");
+      let lopatnic = prompt("Cine te chinuiau la Lopatnic? ").split(" ");
+      let chinuitorii = drochia.concat(lopatnic);
+      alert("Toți chinuitorii sunt: " + chinuitorii.join(" "));
+    </script>

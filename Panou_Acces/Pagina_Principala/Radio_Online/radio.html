@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Radio</title>
+    <style>
+      .radio-container {
+        text-align: center; /* Centrează elementele */
+      }
+
+      .radio-button {
+        cursor: pointer; /* Cursori ca buton când treci cu mouse-ul peste imagine */
+        width: 100px; /* Ajustează dimensiunea imaginii */
+        height: auto;
+      }
+
+      /* Butonul care va reda radio */
+      .station_play {
+        padding: 10px 20px;
+        background-color: #4caf50; /* Culoare verde */
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        border-radius: 5px;
+      }
+
+      .station_play:hover {
+        background-color: #45a049; /* Culoare mai închisă când hover */
+      }
+    </style>
+    <script>
+      let currentAudio = null; // Variabilă pentru a urmări audio-ul curent
+
+      function toggleRadio(radioId) {
+        var audio = document.getElementById(radioId);
+
+        // Oprirea radioului curent dacă este în redare
+        if (currentAudio && !currentAudio.paused) {
+          currentAudio.pause();
+        }
+
+        // Dacă audio-ul nu este în redare, îl vom porni
+        if (audio.paused) {
+          audio.play();
+          currentAudio = audio; // Setăm audio-ul curent
+        } else {
+          audio.pause(); // Dacă este în redare, îl oprim
+          currentAudio = null; // Resetăm audio-ul curent
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="radio-container">
+      <!-- Imaginea care va acționa ca buton pentru primul radio -->
+      <img
+        src="radioplay.png"
+        alt="Radio Play"
+        class="radio-button"
+        onclick="toggleRadio('radio-play')"
+      />
+      <!-- Elementul audio care va reda stream-ul -->
+      <audio id="radio-play">
+        <source src="https://www.radio.md/stream/radioplai" type="audio/mp3" />
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+
+    <div class="radio-container">
+      <!-- Imaginea care va acționa ca buton pentru al doilea radio -->
+      <img
+        src="maestrofm.png"
+        alt="Maestro FM"
+        class="radio-button"
+        onclick="toggleRadio('radio-maestro')"
+      />
+      <!-- Elementul audio care va reda stream-ul -->
+      <audio id="radio-maestro">
+        <source src="http://live.maestrofm.md:8000/maestro" type="audio/mp3" />
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+  </body>
+</html>

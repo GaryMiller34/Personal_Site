@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contor Vizualizări</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin-top: 20px;
+      }
+      .counter-box {
+        display: inline-block;
+        padding: 10px;
+        background-color: #363636;
+        border: 1px solid #8f8a8a;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      .counter-box h1 {
+        font-size: 1.2em;
+        margin: 0;
+      }
+      .counter-box p {
+        margin: 5px 0 0;
+        color: #666;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="counter-box">
+      <h1 id="viewCount">0</h1>
+      <p>Vizualizări</p>
+    </div>
+
+    <script>
+      // Funcție pentru a obține contorul de pe server
+      async function fetchCounter() {
+        try {
+          const response = await fetch("counter.php");
+          const data = await response.json();
+          document.getElementById("viewCount").textContent = data.views;
+        } catch (error) {
+          console.error("Eroare la obținerea contorului:", error);
+        }
+      }
+
+      // Apelează funcția când pagina este încărcată
+      fetchCounter();
+    </script>
+  </body>
+</html>
