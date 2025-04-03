@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carusel 3D Animat</title>
+    <style>
+      body {
+        background-color: lightgrey;
+        margin: 0;
+        overflow: hidden;
+      }
+
+      #main-container {
+        perspective: 1000px;
+        width: 250px;
+        height: 150px;
+        position: absolute;
+        top: 50px;
+        left: -300px; /* Pleacă din afara ecranului */
+        animation: moveCarousel 16s linear infinite;
+      }
+
+      #tile-container {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        transform-style: preserve-3d;
+        animation: rotateCarousel 16s linear infinite;
+      }
+
+      .tile {
+        width: 180px;
+        height: 120px;
+        border-radius: 8px;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 16px;
+        font-weight: bold;
+        color: white;
+        transition: opacity 0.5s;
+      }
+
+      /* Poziționare în cerc */
+      #tile-1 {
+        background: #914e67;
+        transform: rotateY(0deg) translateZ(220px);
+      }
+      #tile-2 {
+        background: #4fba6f;
+        transform: rotateY(72deg) translateZ(220px);
+      }
+      #tile-3 {
+        background: #757677;
+        transform: rotateY(144deg) translateZ(220px);
+      }
+      #tile-4 {
+        background: #e8bf1c;
+        transform: rotateY(216deg) translateZ(220px);
+      }
+      #tile-5 {
+        background: #4b393f;
+        transform: rotateY(288deg) translateZ(220px);
+      }
+
+      /* Animație de rotire */
+      @keyframes rotateCarousel {
+        0% {
+          transform: rotateY(0deg);
+        }
+        100% {
+          transform: rotateY(720deg);
+        }
+      }
+
+      /* Animație de deplasare */
+      @keyframes moveCarousel {
+        0% {
+          left: -300px; /* Începe din afara ecranului */
+          opacity: 0;
+        }
+        10% {
+          opacity: 0.3;
+        }
+        20% {
+          opacity: 1;
+        }
+        80% {
+          opacity: 1;
+        }
+        90% {
+          opacity: 0.3;
+        }
+        100% {
+          left: 100vw; /* Iese din ecran spre dreapta */
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main-container">
+      <div id="tile-container">
+        <div class="tile" id="tile-1">APOGEU</div>
+        <div class="tile" id="tile-2">METAMORFOZĂ</div>
+        <div class="tile" id="tile-3">IMPACT</div>
+        <div class="tile" id="tile-4">PROGRES</div>
+        <div class="tile" id="tile-5">INOVAȚIE</div>
+      </div>
+    </div>
+  </body>
+</html>
